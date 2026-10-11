@@ -81,7 +81,7 @@ test("every fixture gets its expected verdict", async ({ page, baseURL }) => {
   // EBU Tech 3341 allows +-0.1 LU. The meter reads -23.06, which the table shows as -23.1.
   expect.soft(["−23.0", "−23.1"]).toContain(row("tone-23.flac").lufs);
   for (const [name, reference] of Object.entries(expected)) {
-    expect.soft(Math.abs(number(row(name).lufs) - reference.lufs), `${name} loudness`).toBeLessThanOrEqual(0.3);
+    expect.soft(Math.abs(number(row(name).lufs) - reference.lufs), `${name} loudness`).toBeLessThanOrEqual(0.15);
     expect.soft(Math.abs(number(row(name).truepeak) - reference.truePeak), `${name} true peak`).toBeLessThanOrEqual(0.5);
   }
 
@@ -109,6 +109,5 @@ test("every fixture gets its expected verdict", async ({ page, baseURL }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.getByRole("button", { name: "mp3-128.flac", exact: true }).click();
     await page.screenshot({ path: "docs/screenshots/results.png", fullPage: true });
-    await page.locator("#scope").screenshot({ path: "docs/screenshots/spectrogram.png" });
   }
 });

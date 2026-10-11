@@ -166,7 +166,9 @@ async function run() {
     `Checked ${total} ${total === 1 ? "file" : "files"}.` +
     (exact
       ? ""
-      : " This browser alters decoded audio slightly (Brave Shields does, to prevent fingerprinting), so the bit-depth and checksum checks were skipped. In Brave, turn Shields off for this page to run them.");
+      : " This browser does not return exact sample values, so the bit-depth and checksum checks were skipped." +
+        // Brave Shields scales decoded audio by a small random factor against fingerprinting.
+        ("brave" in navigator ? " Brave Shields causes this; turning Shields off for this page may bring them back." : ""));
 }
 
 function enqueue(files: File[]) {
