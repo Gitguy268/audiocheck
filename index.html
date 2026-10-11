@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>audiocheck: is this music file as good as it claims?</title>
+    <meta
+      name="description"
+      content="Checks music files in your browser: MP3s dressed up as FLAC, fake hi-res, loudness, clipping and damage. No file leaves your device."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <main>
+      <header class="top">
+        <h1>audiocheck</h1>
+        <p>
+          Checks whether a music file is as good as it claims. Everything runs in this tab, and no file leaves your
+          device.
+        </p>
+      </header>
+
+      <section class="scope" id="scope" aria-label="Selected file">
+        <div class="graph">
+          <div class="plot">
+            <canvas id="spectrogram" width="480" height="160" role="img" aria-label="No file checked yet"></canvas>
+            <p class="cutoff" id="cutoff" hidden></p>
+            <p class="prompt" id="prompt">Drop music files or a folder here</p>
+          </div>
+          <ol class="axis" id="axis" aria-hidden="true"></ol>
+        </div>
+        <div class="reading">
+          <h2 id="reading-name">What it looks for</h2>
+          <p id="reading-format">Each file gets a spectrogram and a plain verdict.</p>
+          <ul id="reading-findings">
+            <li>MP3 or AAC audio dressed up as FLAC or WAV</li>
+            <li>Hi-res files that are upsampled CD audio, or 16-bit audio padded to 24</li>
+            <li>Loudness, true peak and clipping</li>
+            <li>Files that are damaged or cut short</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="bar">
+        <button type="button" id="choose-files">Choose files</button>
+        <button type="button" id="choose-folder">Choose folder</button>
+        <input type="file" id="files" accept="audio/*,.flac,.wv,.ape,.dsf,.dff,.opus,.oga" multiple hidden />
+        <input type="file" id="folder" webkitdirectory hidden />
+        <p id="status" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="results" id="results" role="region" aria-label="Results" tabindex="0" hidden>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">File</th>
+              <th scope="col">Format</th>
+              <th scope="col">Verdict</th>
+              <th scope="col" class="num">Cutoff <small>kHz</small></th>
+              <th scope="col" class="num">Loudness <small>LUFS</small></th>
+              <th scope="col" class="num">True peak <small>dBTP</small></th>
+              <th scope="col" class="num">Range <small>LU</small></th>
+              <th scope="col" class="num">Clipped <small>samples</small></th>
+              <th scope="col">Integrity</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        MIT licensed, <a href="https://github.com/Gitguy268/audiocheck">source on GitHub</a>. Built on
+        music-metadata, fft.js, loudness-worklet and @noble/hashes:
+        <a href="THIRD_PARTY_LICENSES.txt">their licences</a>.
+      </p>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

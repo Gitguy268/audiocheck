@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gitguy268.github.io/audiocheck/sitemap.xml

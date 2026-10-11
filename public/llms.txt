@@ -1,0 +1,7 @@
+# audiocheck
+
+> A web page that checks music files on your own device: lossy transcodes sold as lossless, fake hi-res, loudness, clipping and damage. No file is uploaded; the page cannot make network requests.
+
+- [The app](https://gitguy268.github.io/audiocheck/): drop audio files or a folder to check them
+- [Source and documentation](https://github.com/Gitguy268/audiocheck): README, how each check works, limits
+- [Third-party licences](https://gitguy268.github.io/audiocheck/THIRD_PARTY_LICENSES.txt): the open-source projects the app is built on
