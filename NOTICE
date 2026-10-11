@@ -1,0 +1,77 @@
+audiocheck
+Copyright (c) 2026 Lucas Van De Weerd. MIT, see LICENSE.
+
+The MIT licence in LICENSE covers this project's own code. The packages below
+are other people's work, used under their own licences. Their code is part of
+the built site, so the full text of every licence is collected at build time
+(scripts/prepare.mjs) into THIRD_PARTY_LICENSES.txt, which ships with the site
+and is linked from the page footer.
+
+RUNTIME DEPENDENCIES (in the bundle)
+------------------------------------
+music-metadata 12.1.0 — MIT — Copyright (c) Borewit
+  https://github.com/Borewit/music-metadata
+  Reads each file's header: codec, sample rate, bit depth, bitrate, length.
+  It brings these packages with it, all in the bundle too:
+    strtok3, token-types, @tokenizer/token, @tokenizer/inflate,
+    @borewit/text-codec, win-guid — MIT — Borewit
+    file-type, uint8array-extras — MIT — Sindre Sorhus
+    content-type, media-typer — MIT — Douglas Christopher Wilson
+    debug — MIT — TJ Holowaychuk, Josh Junon
+    ms — MIT — Vercel, Inc.
+    ieee754 — BSD-3-Clause — Fair Oaks Labs, Inc.
+
+fft.js 4.0.4 — MIT — Copyright Fedor Indutny, 2017
+  https://github.com/indutny/fft.js
+  The FFT behind the averaged spectrum and the spectrogram.
+
+loudness-worklet 2.1.0 — MIT — Copyright (c) 2025 lcweden
+  https://github.com/lcweden/loudness-worklet
+  Integrated loudness, loudness range and true peak after ITU-R BS.1770.
+  Its loudness.worklet.js is copied unmodified into the site and served from
+  the site's own origin.
+
+@noble/hashes 2.4.0 — MIT — Copyright (c) 2022 Paul Miller
+  https://github.com/paulmillr/noble-hashes
+  MD5, for comparing decoded audio with the checksum a FLAC file stores.
+
+PRIOR ART (ideas and published numbers; no code copied)
+-------------------------------------------------------
+fakeflac — MIT — Copyright (c) 2022 Maurits van der Schee
+  https://github.com/mevdschee/fakeflac
+  The cutoff search in src/analyze.ts follows its method: average the
+  spectrum, smooth it, walk down from the top of the band and look for a
+  steep step. The code here is written from scratch in TypeScript.
+
+FLAC Detective — MIT — Guillain-RDCDE
+  https://github.com/Guillain-RDCDE/FLAC_Detective
+  The habit of wording verdicts as evidence ("suspicious") instead of a flat
+  "fake", because a wrong accusation costs more than a miss.
+
+Spek — GPL-3.0 — Alexander Kojevnikov
+  https://github.com/alexkay/spek
+  The idea of judging a file by its spectrogram. No Spek code is used.
+
+LAME — LGPL — The LAME Project
+  https://lame.sourceforge.io
+  The table of default low-pass frequencies per bitrate in src/analyze.ts
+  comes from libmp3lame/lame.c (optimum_bandwidth). Only the numbers are
+  used, as facts about how the encoder behaves. No LAME code is used.
+
+FLAC format — Xiph.Org Foundation
+  https://xiph.org/flac/format.html
+  The layout of the STREAMINFO block (sample count, audio MD5).
+
+ASSETS
+------
+public/favicon.svg and docs/screenshots/*.png are this project's own work,
+MIT with the project. The screenshots show generated test signals (noise and
+sine tones), not anyone's music. The page uses system fonts only; no font is
+shipped.
+
+DEVELOPMENT TOOLCHAIN (not shipped in the site)
+-----------------------------------------------
+Vite (MIT), TypeScript (Apache-2.0), oxlint (MIT), Playwright (Apache-2.0),
+axe-core (MPL-2.0, runs the accessibility scan in the end-to-end test),
+@types/node (MIT). FFmpeg (LGPL/GPL, not distributed) generates the test
+audio through scripts/make-fixtures.mjs and must be installed separately.

@@ -1,0 +1,40 @@
+{
+  "name": "audiocheck",
+  "description": "Checks music files in the browser: transcodes sold as lossless, fake hi-res, loudness, clipping and damage. Nothing is uploaded.",
+  "repository": "github:Gitguy268/audiocheck",
+  "license": "MIT",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "predev": "node scripts/prepare.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/prepare.mjs",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "lint": "oxlint",
+    "fixtures": "node scripts/make-fixtures.mjs",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "node --test tests/unit/*.test.ts",
+    "test:e2e": "playwright test",
+    "check": "npm run lint && npm run typecheck && npm run test:unit && npm run build"
+  },
+  "dependencies": {
+    "@noble/hashes": "2.4.0",
+    "fft.js": "4.0.4",
+    "loudness-worklet": "2.1.0",
+    "music-metadata": "12.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.13.5",
+    "axe-core": "4.14.0",
+    "oxlint": "1.83.0",
+    "typescript": "6.0.3",
+    "vite": "8.3.0"
+  }
+}

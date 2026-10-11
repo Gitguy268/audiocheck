@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "oxc"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error"
+  },
+  "rules": {
+    "eslint/require-await": "error",
+    "eslint/no-promise-executor-return": "error",
+    "eslint/eqeqeq": "error"
+  },
+  "ignorePatterns": ["dist", "public/loudness.worklet.js"]
+}
