@@ -8,7 +8,6 @@
 
 [Use it](#use-it) · [What it checks](#what-it-checks) · [Limits](#limits) · [Privacy](#privacy) · [Run it locally](#run-it-locally) · [Credits](#credits-and-licences)
 
-[![CI](https://img.shields.io/github/actions/workflow/status/Gitguy268/audiocheck/ci.yml?branch=main&label=CI)](https://github.com/Gitguy268/audiocheck/actions/workflows/ci.yml)
 ![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue)
 ![Uploads: none](https://img.shields.io/badge/uploads-none-brightgreen)
 ![Backend: none](https://img.shields.io/badge/backend-none-brightgreen)
@@ -23,7 +22,7 @@ The files in the screenshot are generated test signals (noise and sine tones), n
 
 ## Use it
 
-Open <https://gitguy268.github.io/audiocheck/>, then drop files or a folder on the page, or use **Choose files** / **Choose folder**. Click a file name in the table to see its spectrogram and findings.
+Run it locally (see below), then drop files or a folder on the page, or use **Choose files** / **Choose folder**. Click a file name in the table to see its spectrogram and findings.
 
 It decodes with the browser's own decoder, so it reads what your browser can play. FLAC, WAV and MP3 are covered by the tests; Ogg Vorbis, Opus and AAC/M4A depend on the browser. For formats the browser cannot decode (ALAC in Chromium browsers, APE, WavPack, DSD) it shows the header details and says so.
 
@@ -95,7 +94,7 @@ default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect
 Needs Node 24 or newer (`.nvmrc` pins the version this is built with).
 
 ```sh
-git clone https://github.com/Gitguy268/audiocheck.git
+# not on GitHub yet: start from a copy of this folder
 cd audiocheck
 npm ci
 npm run dev        # http://localhost:5173
