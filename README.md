@@ -20,6 +20,33 @@
 
 The files in the screenshot are generated test signals (noise and sine tones), not music.
 
+<!-- run-steps:start -->
+## Run it locally, step by step
+
+1. **Install [Node.js](https://nodejs.org) 24** or newer.
+
+2. **Get the code:**
+
+   ```sh
+   git clone https://github.com/Gitguy268/audiocheck.git
+   cd audiocheck
+   ```
+
+3. **Install the dependencies:**
+
+   ```sh
+   npm ci
+   ```
+
+4. **Start it:**
+
+   ```sh
+   npm run dev
+   ```
+
+5. **Open <http://localhost:5173/>** in your browser. Press `Ctrl+C` in the terminal to stop.
+<!-- run-steps:end -->
+
 ## Use it
 
 Run it locally (see below), then drop files or a folder on the page, or use **Choose files** / **Choose folder**. Click a file name in the table to see its spectrogram and findings.
@@ -94,7 +121,7 @@ default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect
 Needs Node 24 or newer (`.nvmrc` pins the version this is built with).
 
 ```sh
-# not on GitHub yet: start from a copy of this folder
+git clone https://github.com/Gitguy268/audiocheck.git
 cd audiocheck
 npm ci
 npm run dev        # http://localhost:5173
