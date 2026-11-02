@@ -20,6 +20,10 @@
 
 The files in the screenshot are generated test signals (noise and sine tones), not music.
 
+<!-- live-links -->
+**Live:** [gitguy268.github.io/audiocheck](https://gitguy268.github.io/audiocheck/) · [audiocheck-one.vercel.app](https://audiocheck-one.vercel.app)
+<!-- /live-links -->
+
 <!-- run-steps:start -->
 ## Run it locally, step by step
 
