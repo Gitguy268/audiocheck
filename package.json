@@ -27,7 +27,7 @@
     "@noble/hashes": "2.4.0",
     "fft.js": "4.0.4",
     "loudness-worklet": "2.1.0",
-    "music-metadata": "12.1.0"
+    "music-metadata": "12.3.5"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
