@@ -33,7 +33,7 @@
     "@playwright/test": "1.65.0",
     "@types/node": "26.6.6",
     "axe-core": "4.14.1",
-    "oxlint": "1.94.0",
+    "oxlint": "1.95.0",
     "typescript": "6.0.3",
     "vite": "8.3.8"
   }
